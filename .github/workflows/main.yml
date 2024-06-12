@@ -1,0 +1,34 @@
+name: Accessibility Testing
+
+on:
+  pull_request:
+    branches:
+      - main # Trigger on pull requests to the 'main' branch
+
+jobs:
+  axe-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '18.20'
+      - name: Install Dependencies
+        run: npm install
+      - name: Run axe Tests
+        run: |
+          npm install axe-core
+          node accessibility-test.js
+      - name: Report Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: axe-report
+          path: axe-report.json # You might generate a JSON report
+      - name: Fail Build on Violations
+        run: |
+          if [ "$(cat axe-report.json | jq -r '.violations | length')" -gt 0 ]; then
+            echo "Accessibility violations found. Failing build."
+            exit 1
+          fi
