@@ -1,14 +1,35 @@
 name: Linting for accessibility issues
 
-on: [pull_request]
+on:
+  push:
+    branches: [main]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-      - uses: dequelabs/axe-linter-action@v1
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
+          node-version: 18
           api_key: fb7ee15e-1598-4076-8685-e220a98d9c20
           github_token: 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
+      - name: Install dependencies
+        run: npm install
+      - name: Run Axe Core tests
+        run: npm test
+
+
+# on: [pull_request]
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - uses: actions/checkout@v3
+#       - uses: dequelabs/axe-linter-action@v1
+#         with:
+#           api_key: fb7ee15e-1598-4076-8685-e220a98d9c20
+#           github_token: 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
