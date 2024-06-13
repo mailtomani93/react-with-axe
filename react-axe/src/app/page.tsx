@@ -27,7 +27,9 @@ export default function Home() {
           </a>
         </div>
       </div>
-
+    <div>
+      Test 123
+    </div>
       <div className={styles.center}>
         <Image
           className={styles.logo}
