@@ -32,6 +32,8 @@ export default function Home() {
         <input type="text" />
         <input type="text" />
         <input type="text" />
+        <img />
+        <button role="nav"> Test Button</button>
       </div>
       <div className={styles.center}>
         <Image
