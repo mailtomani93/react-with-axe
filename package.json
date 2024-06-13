@@ -1,0 +1,14 @@
+{
+  "name": "react-with-axe",
+  "version": "1.0.0",
+  "description": "git clone [https://github.com/your-username/your-project.git](https://github.com/mailtomani93/react-with-axe.git) cd react-with-axe",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axe-core": "^4.9.1"
+  }
+}
