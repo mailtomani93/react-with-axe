@@ -1,19 +1,19 @@
-name: Run axe Linter
+# name: Run axe Linter
 
-on:
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - edited
-      - synchronize
+# on:
+#   pull_request:
+#     types:
+#       - opened
+#       - reopened
+#       - edited
+#       - synchronize
 
-jobs:
-  axe-linter:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./
-        with:
-          github_token: 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
-          api_key: fb7ee15e-1598-4076-8685-e220a98d9c20
+# jobs:
+#   axe-linter:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: ./
+#         with:
+#           github_token: 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
+#           api_key: fb7ee15e-1598-4076-8685-e220a98d9c20
