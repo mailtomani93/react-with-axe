@@ -30,6 +30,7 @@ export default function Home() {
       <div>Test 123</div>
       <div>
         <input type="text" />
+        
       </div>
       <div className={styles.center}>
         <Image

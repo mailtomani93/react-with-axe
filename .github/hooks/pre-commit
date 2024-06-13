@@ -9,7 +9,7 @@
 echo "axe DevTools Linter Starting $(date)"
  
 # Setup variables for axe DevTools Linter
-export AXE_LINTER_SERVER_URL=http://localhost
+export AXE_LINTER_SERVER_URL="http://localhost"
 export AXE_LINTER_SERVER_PORT=3000
 StatusCode=0
 
