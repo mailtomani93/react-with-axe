@@ -94,6 +94,7 @@ export default function Home() {
       </div>
       <div>
         <input type="text" />
+        
       </div>
     </main>
   );
