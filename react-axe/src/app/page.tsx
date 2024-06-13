@@ -92,6 +92,9 @@ export default function Home() {
           </p>
         </a>
       </div>
+      <div>
+        <input type="text" />
+      </div>
     </main>
   );
 }
