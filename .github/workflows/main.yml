@@ -1,8 +1,6 @@
 name: Linting for accessibility issues
 
-on:
-  push:
-    branches: [main]
+on: [pull_request]
 
 jobs:
   test:
@@ -20,6 +18,10 @@ jobs:
       - name: Run Axe Core tests
         run: npm test
 
+
+# on:
+#   push:
+#     branches: [main]
 
 # on: [pull_request]
 
