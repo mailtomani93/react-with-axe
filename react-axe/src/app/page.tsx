@@ -31,6 +31,7 @@ export default function Home() {
       <div>
         <input type="text" />
         <input type="text" />
+        <input type="text" />
       </div>
       <div className={styles.center}>
         <Image
