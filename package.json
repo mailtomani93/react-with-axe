@@ -10,5 +10,21 @@
   "license": "ISC",
   "dependencies": {
     "axe-core": "^4.9.1"
+  },
+  "devDependencies": {
+    "axe-cli": "^3.2.1",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{html,js,jsx,ts,tsx}": [
+      "axe 'src/**/*.html' --tags wcag2a,wcag2aa",
+      "git add"
+    ]
   }
 }
