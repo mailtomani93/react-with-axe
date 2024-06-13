@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# This is a sample pre-commit hook script.
+
+# You can customize it to run any checks or commands you need.
+
+# For example, you can check for code style violations, run tests,
+# or lint your code.
+
+echo "Running pre-commit hook..."
+
+# Example: run a linter
+# eslint --fix --ext .js,.jsx,.ts,.tsx src/
+
+# Example: run unit tests
+# npm run test
+
+# Exit with a non-zero code if any of the checks fail
+if [ $? -ne 0 ]; then
+  echo "Pre-commit hook failed. Commit aborted."
+  exit 1
+fi
