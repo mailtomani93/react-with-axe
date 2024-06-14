@@ -32,6 +32,7 @@ export default function Home() {
         <input type="text" />
         <input type="text" />
         <input type="text" />
+        <img src="google.com" />
       </div>
       <div className={styles.center}>
         <Image
