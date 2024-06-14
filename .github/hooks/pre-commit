@@ -1,3 +1,6 @@
+#!/usr/bin/env sh
+# . "${0%/*}/h"
+
 #!/bin/bash
 # axe DevTools Linter pre-commit
 # This script will setup the environment variables needed for axe-linter-connector
@@ -9,10 +12,10 @@
 echo "axe DevTools Linter Starting $(date)"
  
 # Setup variables for axe DevTools Linter
-export AXE_LINTER_SERVER_URL="https://axe-linter.deque.com/"
+export AXE_LINTER_SERVER_URL=https://axe-linter.deque.com/
 StatusCode=0
 
-export AXE_LINTER_API_KEY="fb7ee15e-1598-4076-8685-e220a98d9c20"
+export AXE_LINTER_API_KEY=fb7ee15e-1598-4076-8685-e220a98d9c20
 
 if [[ -z "${AXE_LINTER_API_KEY}" ]]; then
    echo "AXE_LINTER_API_KEY must be set"
