@@ -38,13 +38,15 @@ export default function Home() {
         <Image
           className={styles.logo}
           src="/next.svg"
-          alt="Next.js Logo"
+          // alt="Next.js Logo"
           width={180}
           height={37}
           priority
         />
       </div>
-
+    <div>
+      <img src="http://www.google.com" />
+    </div>
       <div className={styles.grid}>
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
@@ -91,7 +93,7 @@ export default function Home() {
           <h2>
             Deploy <span>-&gt;</span>
           </h2>
-          <p>
+          <p role="list">
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
