@@ -32,6 +32,7 @@ export default function Home() {
         <input type="text" />
         <input type="text" />
         <input type="text" />
+        {/* <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" /> */}
       </div>
       <div className={styles.center}>
         <Image

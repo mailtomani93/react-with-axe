@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-. "${0%/*}/h"
+# . "${0%/*}/h"
 
 #!/bin/bash
 # axe DevTools Linter pre-commit
@@ -9,54 +9,84 @@
 ## 1 - axe DevTools Linter Detected Accessibility Defects
 ## 2 - Execution problem, or axe DevTools Linter unavailable.
  
-echo "axe DevTools Linter Starting $(date)"
+# echo "axe DevTools Linter Starting $(date)"
  
-# Setup variables for axe DevTools Linter
-export AXE_LINTER_SERVER_URL=https://axe-linter.deque.com/
-StatusCode=0
+# # Setup variables for axe DevTools Linter
+# export AXE_LINTER_SERVER_URL="https://axe-linter.deque.com"
+# StatusCode=0
 
-export AXE_LINTER_API_KEY=fb7ee15e-1598-4076-8685-e220a98d9c20
+# export AXE_LINTER_API_KEY="fb7ee15e-1598-4076-8685-e220a98d9c20"
 
-if [[ -z "${AXE_LINTER_API_KEY}" ]]; then
-   echo "AXE_LINTER_API_KEY must be set"
-   exit 2
-fi
-# Configure verbose output.
-VerboseOutput="false"
-# Configure outfile: output in Generic Issue Import Format for in execution directory.
-OutFile="axe-linter-report.json"
-for i in $(git status --porcelain | sed s/^...//); do
-   rm -f $OutFile
-   TempCode=0
-   shopt -s nocasematch;
-   if [[ $i == *.html ]] || [[ $i == *.js ]] || [[ $i == *.jsx ]]|| [[ $i == *.ts ]]|| [[ $i == *.tsx ]]|| [[ $i == *.vue ]]|| [[ $i == *.htm ]]|| [[ $i == *.md ]]|| [[ $i == *.markdown ]];
-   then
-      if $VerboseOutput; then
-         echo "Accessibility check: file: $i"
-      fi
-      # execute axe DevTools Linter Connector
-      axe-linter-connector -s $i -d . --api-key $AXE_LINTER_API_KEY --config ./axe-linter.yml --url $AXE_LINTER_SERVER_URL
+# if [[ -z "${AXE_LINTER_API_KEY}" ]]; then
+#    echo "AXE_LINTER_API_KEY must be set"
+#    exit 2
+# fi
+# # Configure verbose output.
+# VerboseOutput="false"
+# # Configure outfile: output in Generic Issue Import Format for in execution directory.
+# OutFile="axe-linter-report.json"
+# for i in $(git status --porcelain | sed s/^...//); do
+#    rm -f $OutFile
+#    TempCode=0
+#    shopt -s nocasematch;
+#    if [[ $i == *.html ]] || [[ $i == *.js ]] || [[ $i == *.jsx ]]|| [[ $i == *.ts ]]|| [[ $i == *.tsx ]]|| [[ $i == *.vue ]]|| [[ $i == *.htm ]]|| [[ $i == *.md ]]|| [[ $i == *.markdown ]];
+#    then
+#       if $VerboseOutput; then
+#          echo "Accessibility check: file: $i"
+#       fi
+#       # execute axe DevTools Linter Connector
+#       axe-linter-connector -s $i -d . --api-key $AXE_LINTER_API_KEY --config ./axe-linter.yml --url $AXE_LINTER_SERVER_URL
 
-      if [ ! -f "$OutFile" ];then
-         echo "$OutFile Does Not Exist"
-         exit 2
-      elif cat "$OutFile" | grep -q "BUG"; then
-         if $VerboseOutput; then
-            cat $OutFile
-         fi
-         echo "**axe DevTools Linter Accessibility Issues Detected: $i"
-         TempCode=1
-      else
-         echo "No axe DevTools Linter Connector Issues Detected in: $i"
-      fi
-      if [ "$TempCode" != "0" ]; then
-         StatusCode=1
-      fi
-      rm $OutFile
-   fi
-done
+#       if [ ! -f "$OutFile" ];then
+#          echo "$OutFile Does Not Exist"
+#          exit 2
+#       elif cat "$OutFile" | grep -q "BUG"; then
+#          if $VerboseOutput; then
+#             cat $OutFile
+#          fi
+#          echo "**axe DevTools Linter Accessibility Issues Detected: $i"
+#          TempCode=1
+#       else
+#          echo "No axe DevTools Linter Connector Issues Detected in: $i"
+#       fi
+#       if [ "$TempCode" != "0" ]; then
+#          StatusCode=1
+#       fi
+#       rm $OutFile
+#    fi
+# done
  
-if [ "$StatusCode" != "0" ]; then
-   echo "Commit Failed due to Accessibility Issues"
-fi
-exit $StatusCode
+# if [ "$StatusCode" != "0" ]; then
+#    echo "Commit Failed due to Accessibility Issues"
+# fi
+# exit $StatusCode
+
+#!/bin/bash
+
+# Example using axe-core and Node.js
+
+# Files to check (modify as needed)
+
+# FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '.tsx$' | tr '\n' ' ')
+
+# # Check if there are any modified HTML files
+# if [ -n "$FILES" ]; then
+#   # Run axe-core on each modified HTML file
+#   for file in $FILES; do
+#     # Assuming you have a Node.js script that runs axe-core and handles results
+#     node run-axe.js $file
+
+#     # Example error handling:
+#     if [ $? -ne 0 ]; then
+#       echo "Accessibility errors found in $file. Please fix before committing."
+#       exit 1 # Prevent the commit
+#     fi
+#   done
+# fi
+
+# exit 0 # Allow the commit
+
+# Run axe-core accessibility checks
+# ./pre-commit-axe.sh
+
+# node ./pre-commit-axe.js
