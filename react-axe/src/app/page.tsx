@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import { Button } from "@mui/material";
 
 export default function Home() {
   return (
@@ -33,6 +34,12 @@ export default function Home() {
         <input type="text" />
         <input type="text" />
         {/* <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" /> */}
+      </div>
+      <div>
+        <Button variant="contained" role="row">Contained</Button>
+      </div>
+      <div role="cell">
+        <Button variant="contained">Check Validation</Button>
       </div>
       <div className={styles.center}>
         <Image

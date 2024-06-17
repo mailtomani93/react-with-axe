@@ -67,22 +67,22 @@
 
 # Files to check (modify as needed)
 
-# FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '.html$' | tr '\n' ' ')
+FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '.tsx$' | tr '\n' ' ')
 
-# # Check if there are any modified HTML files
-# if [ -n "$FILES" ]; then
-#   # Run axe-core on each modified HTML file
-#   for file in $FILES; do
-#     # Assuming you have a Node.js script that runs axe-core and handles results
-#     node run-axe.js $file
+# Check if there are any modified HTML files
+if [ -n "$FILES" ]; then
+  # Run axe-core on each modified HTML file
+  for file in $FILES; do
+    # Assuming you have a Node.js script that runs axe-core and handles results
+    node run-axe.js $file
 
-#     # Example error handling:
-#     if [ $? -ne 0 ]; then
-#       echo "Accessibility errors found in $file. Please fix before committing."
-#       exit 1 # Prevent the commit
-#     fi
-#   done
-# fi
+    # Example error handling:
+    if [ $? -ne 0 ]; then
+      echo "Accessibility errors found in $file. Please fix before committing."
+      exit 1 # Prevent the commit
+    fi
+  done
+fi
 
 # exit 0 # Allow the commit
 
