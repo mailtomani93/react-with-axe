@@ -38,6 +38,9 @@ export default function Home() {
       <div>
         <Button variant="contained" role="row">Contained</Button>
       </div>
+      <div role="cell">
+        <Button variant="contained">Check Validation</Button>
+      </div>
       <div className={styles.center}>
         <Image
           className={styles.logo}
