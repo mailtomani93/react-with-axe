@@ -67,7 +67,7 @@
 
 # Files to check (modify as needed)
 
-# FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '.tsx$' | tr '\n' ' ')
+# FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '.html$' | tr '\n' ' ')
 
 # # Check if there are any modified HTML files
 # if [ -n "$FILES" ]; then
