@@ -36,7 +36,7 @@ export default function Home() {
         {/* <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" /> */}
       </div>
       <div>
-        <Button variant="contained" role="dialog">Contained</Button>
+        <Button variant="contained" role="row">Contained</Button>
       </div>
       <div className={styles.center}>
         <Image
